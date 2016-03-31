@@ -1,0 +1,9 @@
+I am a basic WMS Item Availability server
+
+GET /
+    get this screen
+
+GET /oclc/:oclc_number
+    get JSON-encoded holding data for an item
+
+ex. visit /oclc/45436474 to see if we own the film THE CRAFT
