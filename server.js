@@ -12,6 +12,12 @@ var baseurl = process.env['BASE_URL'] || '/'
 var port = process.env['PORT'] || 8880
 
 var server = http.createServer(function (req, res) {
+    // bail on anything besides GET requests
+    if (req.method !== 'GET') {
+        res.writeHead(405, {'Allow': 'GET', 'Content-Type': 'text/plain'})
+        return fs.createReadStream('./info.txt').pipe(res)
+    }
+
     var parsed = url.parse(req.url)
     var m = parsed.path.match(validreg)
 
