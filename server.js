@@ -28,7 +28,7 @@ var server = http.createServer(function (req, res) {
                 out = { oclcNumber: num, availableNow: isAvailable, holdings: holdings }
             }
 
-            res.writeHead(stat, { 'Content-Type': 'application/json' })
+            res.writeHead(stat, { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' })
             return res.end(JSON.stringify(out))
         })
     } else {
